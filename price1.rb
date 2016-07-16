@@ -35,11 +35,11 @@ url="http://rosmet-lom.ru/"
 	html.css(".tab1").each do |node|
 	f1.write node
 	section_html = Nokogiri::HTML(node.inner_html)
-	w=section_html.css('td')[1].text
+	block=section_html.css('td')[1].text
 #	w=section_html.css('td')[1].text.gsub(/\D/,"").to_i
 end
 #	w="4343"
-	f.write w
+	f.write block
 
 
 
