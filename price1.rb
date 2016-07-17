@@ -60,8 +60,8 @@ url="http://lomvtormet.ru/cjeny"
 	f.write ", "
 	f.write html.css(".c_block").css(".text")[3].text.gsub(/\D/,"")
 	f.write ", 2nd way (xpath): "
-	f.write html.xpath("html/body/div/div/div/table")[3].text.gsub(/\D/,"").to_i
-	# full_true path: f.write html.xpath("html/body/div/div/div/table")[3].xpath("tr/td/p")[2].text.gsub(/\D/,"").to_i
+	f.write html.xpath("html/body/div/div/div/table")[3].text.gsub(/\D/,"")
+	# full_true path: f.write html.xpath("html/body/div/div/div/table")[3].xpath("tr/td/p")[2].text.gsub(/\D/,"")
 	f.write "\r"
 
 
