@@ -1,19 +1,20 @@
 require 'nokogiri'
 require 'open-uri'
 
-f= File.new("test.txt", "w")
 
 
 
-url="http://metall77.ru/ceny/"
+url="http://old-metall.ru/czenyi"
 	html = Nokogiri::HTML(open(url))
 
-f.write html.css(".tb_price").xpath("tr[3]/td[3]").text#.gsub(/\D/,"").to_i
-		
-		
-		
+	price=html.xpath("html/body/div/div[4]/table[1]/tbody/tr[2]/td[3]").text.gsub(/\D/,"").to_i/100
+	pdate="010101"
 	
-f.close
+	
+
+	puts url, price, pdate
 
 
+
+gets
 

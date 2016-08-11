@@ -12,11 +12,13 @@ end
 
 def addtocsv url, price, date
 	@f.write ("#{url};#{price};#{dateconvert(date).strftime("%d.%m.%y")};#{DateTime.now.strftime("%d.%m.%y")}\r")
+	#@f.write ("#{url};#{price};#{dateconvert(date)};#{DateTime.now.}\r")
 end
 
 
 @f= File.new("prices.csv", "a")
 
+begin
 url="http://lomrus.ru/tseny-na-metallolom"
 	html = Nokogiri::HTML(open(url))
 
@@ -24,6 +26,7 @@ url="http://lomrus.ru/tseny-na-metallolom"
 	pdate=html.css("#node-58").xpath("article/div/div/h2").text.gsub(/\D/,"")
 	addtocsv url, price, pdate
 
+begin
 url="http://rosmet-lom.ru/"
 	html = Nokogiri::HTML(open(url))
 
@@ -31,6 +34,7 @@ url="http://rosmet-lom.ru/"
 	pdate=html.css("#ceny").text.gsub(/\D/,"")
 	addtocsv url, price, pdate
 
+begin
 url="http://www.startmetall.ru/price/"
 	html = Nokogiri::HTML(open(url))
 
@@ -38,6 +42,7 @@ url="http://www.startmetall.ru/price/"
 	pdate=html.css("#post-3").xpath("div/table[1]/tbody/tr/td[2]/em/span").text.gsub(/\D/,"")
 	addtocsv url, price, pdate
 
+begin
 url="http://planetaloma.ru/tseny"
 	html = Nokogiri::HTML(open(url))
 
@@ -45,6 +50,7 @@ url="http://planetaloma.ru/tseny"
 	pdate=html.css("#container_wrap").xpath("div/div/div[3]/h2[1]/span").text.gsub(/\D/,"")
 	addtocsv url, price, pdate	
 
+begin
 url="http://kupim-metall.ru/tseny-0"
 	html = Nokogiri::HTML(open(url))
 
@@ -52,6 +58,7 @@ url="http://kupim-metall.ru/tseny-0"
 	pdate=html.css("#node-79").xpath("article/div/div/h2[1]").text.gsub(/\D/,"")
 	addtocsv url, price, pdate		
 
+begin
 url="http://metalloplus.ru/tsena/"
 	html = Nokogiri::HTML(open(url))
 
@@ -83,6 +90,7 @@ url="http://orisprom.ru/purchase/ceny_na_lom_i_othody_chernyh_metallov"
 	addtocsv url, price, pdate
 #Конец сложного куска	
 
+begin	
 url="http://www.reallom.ru/price/price-chermet"
 	html = Nokogiri::HTML(open(url))
 
@@ -90,6 +98,7 @@ url="http://www.reallom.ru/price/price-chermet"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://sdaylom.ru/priem-loma-v-moskve"
 	html = Nokogiri::HTML(open(url))
 
@@ -97,6 +106,7 @@ url="http://sdaylom.ru/priem-loma-v-moskve"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://prioritetmet.ru/ceni-na-metall"
 	html = Nokogiri::HTML(open(url))
 
@@ -104,6 +114,7 @@ url="http://prioritetmet.ru/ceni-na-metall"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://old-metall.ru/czenyi"
 	html = Nokogiri::HTML(open(url))
 
@@ -111,6 +122,7 @@ url="http://old-metall.ru/czenyi"
 	pdate="010101"
 	addtocsv url, price, pdate		
 
+begin
 url="http://pmk-lom.ru/purchase/prices/"
 	html = Nokogiri::HTML(open(url))
 
@@ -118,6 +130,7 @@ url="http://pmk-lom.ru/purchase/prices/"
 	pdate="010101"
 	addtocsv url, price, pdate	
 
+begin
 url="http://www.lom-msk.ru/cherniy/"
 	html = Nokogiri::HTML(open(url))
 
@@ -125,6 +138,7 @@ url="http://www.lom-msk.ru/cherniy/"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://lompriem.ru/vse-nashi-tseny.html"
 	html = Nokogiri::HTML(open(url))
 
@@ -132,6 +146,7 @@ url="http://lompriem.ru/vse-nashi-tseny.html"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://foramet.ru/chernyj-metall"
 	html = Nokogiri::HTML(open(url))
 
@@ -139,6 +154,7 @@ url="http://foramet.ru/chernyj-metall"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://www.lom-trade.ru/chernyj-metall.shtml"
 	html = Nokogiri::HTML(open(url))
 
@@ -146,6 +162,7 @@ url="http://www.lom-trade.ru/chernyj-metall.shtml"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://lomrf.ru/price.htm"
 	html = Nokogiri::HTML(open(url))
 
@@ -153,6 +170,7 @@ url="http://lomrf.ru/price.htm"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://metal-scrap.ru/chernyy-metallolom/lom-stali"
 	html = Nokogiri::HTML(open(url))
 
@@ -160,6 +178,7 @@ url="http://metal-scrap.ru/chernyy-metallolom/lom-stali"
 	pdate="010101"
 	addtocsv url, price, pdate	
 
+begin
 url="http://pzka.ru/punkt-priema-loma-chernykh-metallov/"
 	html = Nokogiri::HTML(open(url))
 
@@ -167,6 +186,7 @@ url="http://pzka.ru/punkt-priema-loma-chernykh-metallov/"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://www.scrapmetall.ru/price.html"
 	html = Nokogiri::HTML(open(url))
 
@@ -174,6 +194,7 @@ url="http://www.scrapmetall.ru/price.html"
 	pdate="010101"
 	addtocsv url, price, pdate	
 
+begin
 url="http://metall77.ru/ceny/"
 	html = Nokogiri::HTML(open(url))
 
@@ -181,6 +202,7 @@ url="http://metall77.ru/ceny/"
 	pdate="010101"
 	addtocsv url, price, pdate
 
+begin
 url="http://www.priem-metalla.ru/pages/3/"
 	html = Nokogiri::HTML(open(url))
 
@@ -188,6 +210,7 @@ url="http://www.priem-metalla.ru/pages/3/"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://www.lom-mira.ru/?yclid=3205156684406459317#!blank/ngcw6"
 	html = Nokogiri::HTML(open(url))
 
@@ -195,6 +218,7 @@ url="http://www.lom-mira.ru/?yclid=3205156684406459317#!blank/ngcw6"
 	pdate="010101"
 	addtocsv url, price, pdate		
 	
+begin
 url="http://kuplu-metallolom.ru/pokupka-metalloloma-cena.html"
 	html = Nokogiri::HTML(open(url))
 
@@ -202,6 +226,7 @@ url="http://kuplu-metallolom.ru/pokupka-metalloloma-cena.html"
 	pdate="010101"
 	addtocsv url, price, pdate	
 
+begin
 url="http://metallokonstruction.ru/ceni-na-metallolom.html"
 	html = Nokogiri::HTML(open(url))
 
@@ -209,6 +234,7 @@ url="http://metallokonstruction.ru/ceni-na-metallolom.html"
 	pdate="010101"
 	addtocsv url, price, pdate	
 
+begin
 url="http://www.lombe.ru/tsena-metallolom/"
 	html = Nokogiri::HTML(open(url))
 
@@ -216,6 +242,7 @@ url="http://www.lombe.ru/tsena-metallolom/"
 	pdate="010101"
 	addtocsv url, price, pdate	
 
+begin
 url="http://re-lom.ru/ceny-na-lom-metallov.html"
 	html = Nokogiri::HTML(open(url))
 
@@ -223,6 +250,7 @@ url="http://re-lom.ru/ceny-na-lom-metallov.html"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://sdaymetall.ru/chernyj-metall.html"
 	html = Nokogiri::HTML(open(url))
 
@@ -230,6 +258,7 @@ url="http://sdaymetall.ru/chernyj-metall.html"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://www.megaferum.ru/"
 	html = Nokogiri::HTML(open(url))
 
@@ -237,6 +266,7 @@ url="http://www.megaferum.ru/"
 	pdate=html.css("#dle-content").xpath("div/table[1]/tr[1]").text.gsub(/\D/,"")
 	addtocsv url, price, pdate	
 	
+begin
 url="http://glavchermet.ru/price.html?id=264"
 	html = Nokogiri::HTML(open(url))
 
@@ -244,6 +274,7 @@ url="http://glavchermet.ru/price.html?id=264"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://pro-lom.ru/kinds-scrap/?yclid=3206104835139308661"
 	html = Nokogiri::HTML(open(url))
 
@@ -251,6 +282,7 @@ url="http://pro-lom.ru/kinds-scrap/?yclid=3206104835139308661"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://www.baltexcom.net/price.html"
 	html = Nokogiri::HTML(open(url))
 
@@ -258,6 +290,7 @@ url="http://www.baltexcom.net/price.html"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://www.icvtormet.ru/ru/produkciya-i-uslugi/departament-chernyh-metallov/zakupki/"
 	html = Nokogiri::HTML(open(url))
 
@@ -265,6 +298,7 @@ url="http://www.icvtormet.ru/ru/produkciya-i-uslugi/departament-chernyh-metallov
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://uvchm.ru/prices/p-479/"
 	html = Nokogiri::HTML(open(url))
 
@@ -272,6 +306,7 @@ url="http://uvchm.ru/prices/p-479/"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://p-lom.ru/price_black.php"
 	html = Nokogiri::HTML(open(url))
 
@@ -279,6 +314,7 @@ url="http://p-lom.ru/price_black.php"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://capital-mett.com/cena-lom-chernyh-metallov"
 	html = Nokogiri::HTML(open(url))
 
@@ -286,12 +322,17 @@ url="http://capital-mett.com/cena-lom-chernyh-metallov"
 	pdate="010101"
 	addtocsv url, price, pdate	
 	
+begin
 url="http://vtormetlom.ctlx.ru/"
 	html = Nokogiri::HTML(open(url))
 
 	price=html.css("#index_page_products_block").xpath("div[1]/table/tr[1]/td[1]/div[1]/div[2]/span").text.gsub(/\D/,"").to_i/100
 	pdate="010101"
 	addtocsv url, price, pdate	
+
+
+
+
 
 
 
